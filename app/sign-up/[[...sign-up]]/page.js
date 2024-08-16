@@ -37,7 +37,7 @@ export default function SignUpPage() {
                 <Link href="/sign-up" underline="none" sx={{ color: "white" }}>
                   Sign Up
                 </Link>
-              </Button>
+            </Button>
           </Toolbar>
         </AppBar>
         <Box

@@ -28,7 +28,7 @@ export default function SignInPage() {
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
               W
             </Typography>
-            <Button color="inherit" sx = {{marginRight: "7px"}}>
+            <Button color="inherit">
               <Link href="/sign-in" underline="none" sx={{ color: "white" }}>
                 Login
               </Link>

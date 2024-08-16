@@ -91,66 +91,74 @@ const FlashcardSet = () => {
             </Button>
           </Box>
           {!loading ? (
-            <Grid container spacing={3}>
-              {flashcardSets.map((set, index) => (
-                <Grid item xs={12} md={4} key={index}>
-                  <Card
-                    sx={{
-                      backgroundColor: "#303754",
-                      borderRadius: "15px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => handleCardClick(set.id)}
-                  >
-                    <CardContent>
-                      <Typography variant="h6" sx={{ color: "#fff" }}>
-                        {set.name || set.id}{" "}
-                        {/* Display set name or fallback to the collection ID */}
-                      </Typography>
-                      {set.flashcards && (
-                        <Chip
-                          label={`${set.flashcards.length} terms`}
-                          sx={{
-                            marginTop: "10px",
-                            backgroundColor: "#5962D9",
-                            color: "#fff",
-                            fontSize: "14px",
-                            borderRadius: "10px",
-                          }}
-                        />
-                      )}
-                      {set.description && (
-                        <Chip
-                          label={`${set.terms} terms`}
-                          sx={{
-                            marginTop: "10px",
-                            backgroundColor: "#5962D9",
-                            color: "#fff",
-                            fontSize: "14px",
-                            borderRadius: "10px",
-                          }}
-                        />
-                      )}
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          marginTop: "15px",
-                        }}
-                      >
-                        <Avatar
-                          sx={{ width: 24, height: 24 }}
-                          src={user.imageUrl}
-                        />
-                        <Typography sx={{ color: "white", marginLeft: "10px" }}>
-                          {user.fullName || user.email}
+            flashcardSets.length > 0 ? (
+              <Grid container spacing={3}>
+                {flashcardSets.map((set, index) => (
+                  <Grid item xs={12} md={4} key={index}>
+                    <Card
+                      sx={{
+                        backgroundColor: "#303754",
+                        borderRadius: "15px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleCardClick(set.id)}
+                    >
+                      <CardContent>
+                        <Typography variant="h6" sx={{ color: "#fff" }}>
+                          {set.name || set.id}{" "}
+                          {/* Display set name or fallback to the collection ID */}
                         </Typography>
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
+                        {set.flashcards && (
+                          <Chip
+                            label={`${set.flashcards.length} terms`}
+                            sx={{
+                              marginTop: "10px",
+                              backgroundColor: "#5962D9",
+                              color: "#fff",
+                              fontSize: "14px",
+                              borderRadius: "10px",
+                            }}
+                          />
+                        )}
+                        {set.description && (
+                          <Chip
+                            label={`${set.terms} terms`}
+                            sx={{
+                              marginTop: "10px",
+                              backgroundColor: "#5962D9",
+                              color: "#fff",
+                              fontSize: "14px",
+                              borderRadius: "10px",
+                            }}
+                          />
+                        )}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            marginTop: "15px",
+                          }}
+                        >
+                          <Avatar
+                            sx={{ width: 24, height: 24 }}
+                            src={user.imageUrl}
+                          />
+                          <Typography
+                            sx={{ color: "white", marginLeft: "10px" }}
+                          >
+                            {user.fullName || user.email}
+                          </Typography>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            ) : (
+              <Typography variant="h5" sx={{ textAlign: "center", mt: 5 }}>
+                No Flashcard Sets
+              </Typography>
+            )
           ) : (
             <Box
               sx={{

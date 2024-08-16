@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AI Flashcard App",
+  title: "Wizlet",
   description: "An AI Flashcard App created with next app",
 };
 
